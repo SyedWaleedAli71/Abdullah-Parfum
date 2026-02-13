@@ -1,0 +1,966 @@
+/* =========================================
+   1. Google Fonts & Variables
+   ========================================= */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Inter:wght@300;400;500;600&display=swap');
+
+:root {
+  --primary-color: #B87333; /* Bronze/Gold */
+  --secondary-color: #1a1a1a; /* Dark Gray/Black */
+  --light-bg: #f8f9fa;
+  --text-dark: #333;
+  --text-muted: #666;
+  --text-light: #fff;
+  --font-serif: "Playfair Display", serif;
+  --font-sans: "Inter", sans-serif;
+  --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1); /* Smooth premium transition */
+  --shadow-sm: 0 4px 6px rgba(0,0,0,0.05);
+  --shadow-md: 0 10px 30px rgba(0,0,0,0.08); /* Softer shadow */
+  --shadow-lg: 0 20px 40px rgba(0,0,0,0.12);
+}
+
+/* =========================================
+   2. Global Reset & Typography
+   ========================================= */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  color: var(--text-dark);
+  background-color: #fff;
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-serif);
+  color: var(--secondary-color);
+  margin-top: 0;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Custom Scrollbar for 'Official' Feeel */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #d4a778;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary-color);
+}
+
+/* =========================================
+   3. Animations
+   ========================================= */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 40px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+/* Apply animation to Hero Text on load */
+.carousel-caption h5, 
+.carousel-caption p, 
+.carousel-caption .btn {
+  animation: fadeInUp 1s ease-out forwards;
+  opacity: 0; /* Star hidden */
+}
+
+.carousel-caption h5 { animation-delay: 0.3s; }
+.carousel-caption p { animation-delay: 0.5s; }
+.carousel-caption .btn { animation-delay: 0.7s; }
+
+/* =========================================
+   4. Navbar Styling
+   ========================================= */
+.navbar {
+  background-color: rgba(255, 255, 255, 0.98) !important; /* increased opacity */
+  backdrop-filter: blur(15px);
+  box-shadow: var(--shadow-sm);
+  padding: 1rem 0;
+  transition: var(--transition);
+}
+
+.navbar-brand img {
+  height: 50px; /* Ensure consistent logo size */
+  width: auto;
+}
+
+.nav-link {
+  font-family: var(--font-serif);
+  font-weight: 500;
+  color: var(--secondary-color) !important;
+  margin: 0 12px;
+  position: relative;
+  transition: var(--transition);
+  letter-spacing: 0.5px;
+  font-size: 1.05rem;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -2px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--primary-color);
+  transition: var(--transition);
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+  width: 100%;
+}
+
+.nav-link.active {
+  color: var(--primary-color) !important;
+}
+
+.btn-search {
+  background-color: var(--primary-color);
+  color: white;
+  border: 1px solid var(--primary-color);
+  transition: var(--transition);
+  padding: 8px 20px;
+  border-radius: 4px;
+}
+
+.btn-search:hover {
+  background-color: transparent;
+  color: var(--primary-color);
+  transform: translateY(-2px);
+}
+
+/* =========================================
+   5. Hero Carousel
+   ========================================= */
+#heroCarousel .carousel-item {
+  height: 90vh; /* Taller hero section */
+  min-height: 600px;
+}
+
+#heroCarousel img {
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.65); /* Slightly darker for elegance */
+}
+
+.carousel-caption {
+  bottom: 35%;
+  text-align: left;
+  left: 10%; /* Bootstrap container alignment */
+  right: 10%;
+}
+
+.carousel-caption h5 {
+  font-size: 4.5rem; /* Larger, more impressive font */
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  letter-spacing: -1px;
+}
+
+.carousel-caption p {
+  font-size: 1.4rem;
+  font-weight: 300;
+  max-width: 600px;
+  margin-bottom: 2rem;
+}
+
+.btn-primary {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+  padding: 14px 40px;
+  border-radius: 50px; /* Fully rounded */
+  font-family: var(--font-sans);
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 1px;
+  transition: var(--transition);
+  box-shadow: 0 4px 15px rgba(184, 115, 51, 0.4); /* Glow effect */
+}
+
+.btn-primary:hover {
+  background-color: #a0632a; /* Darker bronze */
+  border-color: #a0632a;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(184, 115, 51, 0.6);
+}
+
+/* =========================================
+   6. Section Titles (Global)
+   ========================================= */
+.section-title {
+    margin-bottom: 3rem;
+}
+
+.section-title h2 {
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--secondary-color);
+    margin-bottom: 1rem;
+    position: relative;
+    display: inline-block;
+}
+
+.section-title h2::after {
+    /* Optional underline or decoration */
+    content: '';
+    display: none; /* Removing simple underline for cleaner look */
+}
+
+.section-title span {
+    color: var(--primary-color);
+    font-style: italic; /* Elegant touch */
+}
+
+.section-title p {
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* =========================================
+   7. Popular Products Section
+   ========================================= */
+.popular-product-section {
+  background-color: #fff;
+  padding: 80px 0; /* More spacing */
+}
+
+.pop-product-card {
+    background-color: #F9F9F9;
+    border-radius: 12px;
+    padding: 30px;
+    position: relative;
+    transition: var(--transition);
+    text-align: center;
+    border: 1px solid transparent;
+}
+
+.pop-product-card:hover {
+    background-color: #fff;
+    border-color: #eee;
+    box-shadow: var(--shadow-md);
+    transform: translateY(-10px);
+}
+
+.badge-bestseller {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background-color: var(--secondary-color);
+    color: white;
+    padding: 6px 16px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    z-index: 5;
+    border-radius: 4px;
+}
+
+.pop-product-img-wrapper {
+    position: relative;
+    margin-bottom: 25px;
+    height: 280px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.pop-product-img-wrapper img {
+    max-height: 100%;
+    max-width: 100%;
+    object-fit: contain;
+    mix-blend-mode: multiply;
+    transition: transform 0.6s ease;
+}
+
+.pop-product-card:hover .pop-product-img-wrapper img {
+    transform: scale(1.08) rotate(2deg); /* Subtle rotation */
+}
+
+.btn-cart-icon {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background-color: white;
+    color: var(--secondary-color);
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+    border: none;
+    opacity: 0; /* Hidden by default */
+    transform: translateY(20px);
+}
+
+.pop-product-card:hover .btn-cart-icon {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.btn-cart-icon:hover {
+    background-color: var(--primary-color);
+    color: white;
+    transform: rotate(90deg); /* Playful interaction */
+}
+
+.pop-product-info {
+    text-align: left;
+}
+
+.pop-product-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+    letter-spacing: 0.5px;
+}
+
+.pop-product-reviews {
+    font-size: 0.85rem;
+    color: #999;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.stars {
+    color: #FFC107;
+}
+
+.pop-product-price {
+    font-weight: 600;
+    color: var(--text-dark);
+    font-size: 1.1rem;
+}
+
+/* =========================================
+   8. Why Choose Us Section
+   ========================================= */
+.why-choose-us-section {
+    background-color: #fff;
+    padding: 80px 0;
+    border-top: 1px solid #f0f0f0;
+}
+
+.wcu-images-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    grid-template-rows: repeat(2, 200px);
+    gap: 20px;
+}
+
+.wcu-img-wrapper {
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px;
+}
+
+.wcu-img-large {
+    grid-row: 1 / -1;
+    grid-column: 1 / 2;
+}
+
+.wcu-img-small-top {
+    grid-row: 1 / 2;
+    grid-column: 2 / 3;
+}
+
+.wcu-img-small-bottom {
+    grid-row: 2 / 3;
+    grid-column: 2 / 3;
+}
+
+.wcu-img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.8s ease;
+}
+
+.wcu-img-wrapper:hover img {
+    transform: scale(1.1);
+}
+
+.wcu-feature-item {
+    margin-bottom: 2.5rem;
+    padding-left: 10px;
+}
+
+.wcu-number-step {
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    border: 2px solid #e0e0e0;
+    color: var(--secondary-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin-bottom: 1.2rem;
+    font-family: var(--font-serif);
+    transition: var(--transition);
+}
+
+.wcu-feature-item:hover .wcu-number-step {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    color: white;
+    transform: scale(1.1);
+    box-shadow: 0 5px 15px rgba(184, 115, 51, 0.3);
+}
+
+.wcu-number-step.highlight {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    color: white;
+}
+
+.wcu-feature-title {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--secondary-color);
+    margin-bottom: 0.8rem;
+}
+
+/* =========================================
+   9. About Section (Redesign)
+   ========================================= */
+.about-redesign-section {
+    background-color: var(--light-bg);
+    padding: 100px 0;
+}
+
+.about-image-container {
+    position: relative;
+    padding: 20px;
+}
+
+/* Add a decorative border/backdrop */
+.about-image-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 40px;
+    right: 40px;
+    bottom: 0;
+    border: 2px solid var(--primary-color);
+    opacity: 0.2;
+    z-index: 0;
+    transform: rotate(-2deg);
+    border-radius: 10px;
+    transition: var(--transition);
+}
+
+.about-image-container:hover::before {
+    transform: rotate(0deg);
+    opacity: 0.4;
+}
+
+.about-image-container img {
+    position: relative;
+    z-index: 1;
+    border-radius: 12px;
+    box-shadow: var(--shadow-lg);
+    transition: var(--transition);
+    max-height: 550px;
+}
+
+.about-content h4 {
+    color: var(--primary-color);
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+}
+
+.about-content h2 {
+    font-size: 3.5rem;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+}
+
+.about-features-list li {
+    font-size: 1.15rem;
+    margin-bottom: 1rem;
+    padding-left: 30px;
+    position: relative;
+}
+
+/* Checkmark bullet */
+.about-features-list li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--primary-color);
+    font-weight: bold;
+}
+
+.btn-about {
+    background-color: var(--secondary-color);
+    color: white;
+    padding: 14px 40px;
+    margin-top: 1rem;
+    display: inline-block;
+    border-radius: 4px;
+    transition: var(--transition);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.9rem;
+}
+
+.btn-about:hover {
+    background-color: var(--primary-color);
+    color: white;
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+}
+
+/* =========================================
+   10. Stats Section
+   ========================================= */
+.stats-section {
+    background-color: #111; /* Deeper black */
+    color: white;
+    padding: 80px 0;
+    background-image: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('./img/bgcover.jpeg'); /* Add texture if available */
+    background-size: cover;
+    background-attachment: fixed; /* Parallax effect */
+}
+
+.stat-card {
+    background: rgba(255,255,255,0.08);
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 12px;
+    padding: 30px;
+    transition: var(--transition);
+}
+
+.stat-card:hover {
+    border-color: var(--primary-color);
+    transform: translateY(-5px);
+}
+
+/* =========================================
+   11. Contact Section
+   ========================================= */
+.contact-section {
+    position: relative;
+    padding: 80px 0;
+    background-color: #f4f4f4;
+}
+
+.map-container {
+    height: 100%;
+    min-height: 500px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+}
+
+.map-container iframe {
+    width: 100%;
+    height: 100%;
+    filter: grayscale(100%);
+    transition: filter 0.5s;
+}
+
+.map-container:hover iframe {
+    filter: grayscale(0%);
+}
+
+.contact-form-card {
+    background: rgba(255, 255, 255, 0.85); /* Frosted White Glass */
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    padding: 50px;
+    border-radius: 20px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1); /* Soft shadow */
+    border: 1px solid rgba(255, 255, 255, 0.6);
+}
+
+.contact-form-card h2 {
+    color: var(--secondary-color);
+    font-size: 2.2rem;
+    margin-bottom: 0.5rem;
+    font-family: var(--font-serif);
+}
+
+/* Targeting inputs specifically to override Bootstrap defaults if needed */
+.contact-form-card .form-control {
+    background-color: rgba(244, 244, 244, 0.8);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    color: var(--secondary-color);
+    padding: 15px;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: var(--transition);
+}
+
+.contact-form-card .form-control:focus {
+    background-color: #fff;
+    border-color: var(--primary-color);
+    box-shadow: 0 4px 15px rgba(212, 167, 120, 0.2);
+    color: var(--secondary-color);
+}
+
+.contact-form-card .form-label {
+    color: var(--secondary-color) !important;
+    font-size: 0.95rem;
+    margin-bottom: 8px;
+    font-weight: 600;
+    opacity: 0.8;
+}
+
+.contact-form-card .btn-primary {
+    width: 100%;
+    border-radius: 8px;
+    margin-top: 20px;
+    padding: 15px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    box-shadow: var(--shadow-md);
+}
+
+/* =========================================
+   12. Footer
+   ========================================= */
+/* =========================================
+   12. Premium Footer
+   ========================================= */
+.footer-section {
+    background-color: #080808; /* Deep black */
+    color: white;
+    position: relative;
+    margin-top: 100px; /* Space for newsletter overlap */
+    font-family: var(--font-sans);
+}
+
+/* Newsletter Strip with overlap effect */
+.newsletter-strip {
+    background: white;
+    padding: 30px 40px;
+    border-radius: 12px;
+    color: black;
+    box-shadow: 0 -10px 30px rgba(0,0,0,0.1);
+    position: absolute;
+    top: -60px; /* Moves it up to overlap the previous section or gap */
+    left: 0;
+    right: 0;
+    transform: translateY(0);
+    transition: transform 0.6s ease-out;
+    z-index: 10;
+}
+
+.news-title {
+    font-family: var(--font-serif);
+    font-weight: 700;
+    margin-bottom: 0;
+    font-size: 2.5rem;
+}
+
+.news-title span {
+    color: #c59d5f; /* Gold for emphasis */
+}
+
+.news-form-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.news-form-wrapper p {
+    font-weight: 500;
+    line-height: 1.2;
+}
+
+.newsletter-strip .form-control {
+    border: 1px solid #ddd;
+    border-radius: 4px 0 0 4px;
+    padding: 12px 20px;
+    max-width: 300px;
+}
+
+.btn-subscribe {
+    background-color: #c59d5f;
+    color: white;
+    border: none;
+    border-radius: 0 4px 4px 0;
+    padding: 12px 30px;
+    font-weight: 600;
+    transition: var(--transition);
+}
+
+.btn-subscribe:hover {
+    background-color: #b08d55;
+    color: white;
+}
+
+/* Footer Content */
+.footer-brand .footer-logo {
+    height: 70px;
+    object-fit: contain;
+}
+
+.footer-content {
+    background-color: #080808;
+}
+
+.footer-title {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 25px;
+    color: white;
+    position: relative; 
+    padding-bottom: 0; /* Override old styles if any */
+}
+.footer-title::after { content: none; } /* Remove old underline if overriding */
+
+.footer-links li {
+    margin-bottom: 12px;
+}
+
+.footer-links a {
+    color: #aaa;
+    text-decoration: none;
+    transition: var(--transition);
+    position: relative;
+    padding-left: 0;
+}
+
+.footer-links a:hover {
+    color: var(--primary-color);
+    padding-left: 10px; /* Slide effect */
+}
+
+/* Social Buttons */
+.social-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 1px solid rgba(255,255,255,0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    transition: all 0.3s ease;
+    background: transparent;
+    text-decoration: none;
+}
+
+.social-btn:hover {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    transform: translateY(-5px) rotate(360deg);
+    color: white;
+}
+
+.social-btn svg {
+    width: 18px;
+    height: 18px;
+}
+
+/* Payment Icons */
+.pay-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 32px;
+    background: white;
+    border-radius: 4px;
+}
+
+/* Footer Bottom */
+.footer-bottom {
+    background-color: #000;
+    border-top: 1px solid #222;
+}
+
+/* Restoration of Stat Icon Styles */
+.stat-icon {
+  width: 36px;
+  height: 36px;
+  color: var(--primary-color);
+  stroke: currentColor;
+  stroke-width: 2;
+  margin-bottom: 15px;
+  transition: transform 0.3s ease;
+}
+
+.stat-card:hover .stat-icon {
+  transform: rotate(10deg) scale(1.1);
+}
+
+/* =========================================
+   13. Responsive Media Queries (Consolidated)
+   ========================================= */
+
+/* Tablets and smaller laptops */
+@media (max-width: 992px) {
+    .section-title h2 { font-size: 2.5rem; }
+    .carousel-caption h5 { font-size: 3.5rem; }
+    
+    .wcu-images-grid {
+        grid-template-columns: 1fr;
+        grid-template-rows: 250px 200px;
+    }
+    .wcu-img-large { grid-column: 1 / -1; grid-row: 1 / 2; }
+    .wcu-img-small-top { grid-column: 1 / 2; grid-row: 2 / 3; }
+    .wcu-img-small-bottom { display: none; } /* Hide one image to save space or stack differently */
+}
+
+/* Mobile Devices */
+@media (max-width: 768px) {
+    /* Navbar */
+    .navbar-collapse {
+        background: white;
+        padding: 20px;
+        border-radius: 12px;
+        box-shadow: var(--shadow-lg);
+        margin-top: 15px;
+    }
+
+    /* Hero */
+    .carousel-caption h5 { font-size: 2.5rem; }
+    .carousel-caption p { font-size: 1rem; }
+    .carousel-caption { bottom: 20%; left: 5%; right: 5%; }
+    
+    /* Typography */
+    .section-title h2 { font-size: 2rem; }
+    .about-content h2 { font-size: 2.2rem; }
+    
+    /* Layouts */
+    .wcu-images-grid { min-height: auto; margin-bottom: 30px; display: flex; flex-direction: column; gap: 10px; }
+    .wcu-img-wrapper { height: 200px; }
+    .wcu-img-small-bottom { display: block; } /* Show it again since we stacked */
+
+    /* Contact */
+    .contact-section .row { flex-direction: column-reverse; } /* Form first, map second (optional) or standard */
+    .map-container { height: 300px; margin-bottom: 30px; }
+    
+    /* Spacing */
+    .popular-product-section, .why-choose-us-section, .about-redesign-section { padding: 50px 0; }
+}
+
+/* Small Mobile */
+@media (max-width: 576px) {
+    .carousel-caption h5 { font-size: 2rem; }
+    .btn-primary { padding: 10px 30px; font-size: 0.9rem; }
+}
+
+/* =========================================
+   14. FAQ Section (New)
+   ========================================= */
+.faq-section {
+    background-color: black;
+    color: white;
+    padding: 80px 0;
+    overflow: hidden;
+}
+
+.faq-image-container {
+    height: 100%;
+    min-height: 400px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.faq-image-container img {
+    max-height: 500px;
+    width: auto;
+    object-fit: contain;
+    filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.05));
+    transition: var(--transition);
+}
+
+.faq-image-container:hover img {
+    transform: scale(1.02);
+}
+
+.faq-content h2 {
+    font-size: 3rem;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 3rem;
+    font-family: var(--font-serif);
+}
+
+.faq-content h2 span {
+    color: var(--primary-color);
+}
+
+/* Custom Accordion Styling for Dark Theme */
+.accordion-dark .accordion-item {
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    margin-bottom: 10px;
+}
+
+.accordion-dark .accordion-button {
+    background-color: transparent;
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 500;
+    box-shadow: none; /* Remove default blue focus shadow */
+    padding: 20px 0;
+    font-family: var(--font-sans);
+}
+
+.accordion-dark .accordion-button:not(.collapsed) {
+    color: var(--primary-color);
+    background-color: transparent;
+    box-shadow: none;
+}
+
+.accordion-dark .accordion-button::after {
+    filter: invert(1); /* Turn default black arrow to white */
+    background-size: 1.25rem;
+    transition: var(--transition);
+}
+
+.accordion-dark .accordion-button:not(.collapsed)::after {
+    filter: sepia(100%) saturate(500%) hue-rotate(350deg) brightness(90%) contrast(90%); /* Approximate Gold filter */
+    transform: rotate(180deg);
+}
+
+.accordion-dark .accordion-body {
+    color: #ccc;
+    padding: 0 0 20px 0;
+    line-height: 1.6;
+    font-size: 0.95rem;
+}
