@@ -89,42 +89,51 @@ a {
 .carousel-caption .btn { animation-delay: 0.7s; }
 
 /* =========================================
-   4. Navbar Styling
+   4. Navbar Styling (Modern Premium)
    ========================================= */
 .navbar {
-  background-color: rgba(255, 255, 255, 0.98) !important; /* increased opacity */
-  backdrop-filter: blur(15px);
-  box-shadow: var(--shadow-sm);
-  padding: 1rem 0;
+  background-color: rgba(255, 255, 255, 0.85) !important;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  padding: 1.2rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
   transition: var(--transition);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.03);
 }
 
 .navbar-brand img {
-  height: 50px; /* Ensure consistent logo size */
-  width: auto;
+  height: 55px;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+  transition: var(--transition);
+}
+
+.navbar-brand:hover img {
+  transform: scale(1.05);
 }
 
 .nav-link {
-  font-family: var(--font-serif);
+  font-family: var(--font-sans);
   font-weight: 500;
   color: var(--secondary-color) !important;
-  margin: 0 12px;
+  margin: 0 15px; /* More breathing room */
   position: relative;
   transition: var(--transition);
-  letter-spacing: 0.5px;
-  font-size: 1.05rem;
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 5px 0;
 }
 
+/* Animated Underline Effect */
 .nav-link::after {
   content: '';
   position: absolute;
   width: 0;
   height: 2px;
-  bottom: -2px;
-  left: 50%;
-  transform: translateX(-50%);
+  bottom: 0;
+  left: 0; /* Align left for a different feel, or center */
   background-color: var(--primary-color);
-  transition: var(--transition);
+  transition: width 0.3s ease;
 }
 
 .nav-link:hover::after,
@@ -132,23 +141,61 @@ a {
   width: 100%;
 }
 
+.nav-link:hover {
+  color: var(--primary-color) !important;
+  transform: translateY(-2px);
+}
+
 .nav-link.active {
   color: var(--primary-color) !important;
 }
 
-.btn-search {
-  background-color: var(--primary-color);
-  color: white;
-  border: 1px solid var(--primary-color);
+/* Search Bar Modernization */
+.navbar .form-control {
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid #ccc;
+  border-radius: 0;
+  padding: 5px 10px;
+  box-shadow: none;
+  font-family: var(--font-sans);
   transition: var(--transition);
-  padding: 8px 20px;
-  border-radius: 4px;
+  width: 200px;
+}
+
+.navbar .form-control:focus {
+  border-color: var(--primary-color);
+  width: 240px; /* Expand on focus */
+}
+
+.btn-search {
+  background-color: transparent;
+  color: var(--secondary-color);
+  border: 1px solid var(--secondary-color);
+  border-radius: 30px;
+  padding: 6px 20px;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-left: 10px;
+  transition: var(--transition);
 }
 
 .btn-search:hover {
-  background-color: transparent;
-  color: var(--primary-color);
+  background-color: var(--secondary-color);
+  color: white;
   transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.navbar-toggler {
+  border: none;
+  outline: none;
+  box-shadow: none !important;
+}
+
+.navbar-toggler:focus {
+  box-shadow: none;
 }
 
 /* =========================================
@@ -167,7 +214,7 @@ a {
 
 .carousel-caption {
   bottom: 35%;
-  text-align: left;
+  text-align: center;
   left: 10%; /* Bootstrap container alignment */
   right: 10%;
 }
@@ -183,7 +230,7 @@ a {
   font-size: 1.4rem;
   font-weight: 300;
   max-width: 600px;
-  margin-bottom: 2rem;
+  margin: 0 auto 2rem auto; /* Center the paragraph block */
 }
 
 .btn-primary {
@@ -536,13 +583,14 @@ a {
     text-transform: uppercase;
     letter-spacing: 1px;
     font-size: 0.9rem;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2); /* Added visible shadow */
 }
 
 .btn-about:hover {
     background-color: var(--primary-color);
-    color: white;
+    color: rgb(216, 126, 8);
     transform: translateY(-3px);
-    box-shadow: var(--shadow-md);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3); /* Stronger hover shadow */
 }
 
 /* =========================================
