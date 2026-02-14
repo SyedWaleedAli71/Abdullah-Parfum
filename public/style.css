@@ -1012,3 +1012,347 @@ a {
     line-height: 1.6;
     font-size: 0.95rem;
 }
+
+.ParfumCollection{
+    text-align: center;
+    margin-top: 6%;
+    margin-bottom: 5%;
+}
+.ParfumCollection h1{
+    font-size: 3rem;
+    font-weight: 700;
+    /* color: white; */
+    margin-bottom: 3rem;
+    font-family: var(--font-serif);
+}   
+.ParfumCollection p{
+    font-size: 1.5rem;
+    font-weight: 500;
+    /* color: white; */
+    margin-bottom: 3rem;
+    font-family: var(--font-sans);
+}   
+
+.aboutDIV{
+    margin-top: 50px;
+    margin-bottom: 50px;
+    text-align: center !important;
+}
+
+/* about BTN  */
+.perfume-btn {
+  display: inline-block;
+  padding: 14px 30px;
+  background: linear-gradient(135deg, #caa75e, #f5e6c4);
+  color: #111;
+  font-weight: 600;
+  font-size: 16px;
+  text-decoration: none;
+  border-radius: 50px;
+  letter-spacing: 1px;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+.perfume-btn:hover {
+  background: linear-gradient(135deg, #111, #333);
+  color: #caa75e;
+  transform: translateY(-3px);
+  box-shadow: 0 12px 25px rgba(0,0,0,0.3);
+}
+/* contact page  */
+/* Background Image */
+.bg-image {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: url("./img/mancover\ \(1\).png") center/cover no-repeat;
+  filter: brightness(0.4);
+  z-index: -2;
+}
+
+/* Glass Container */
+.contact-section {
+  padding: 80px 20px;
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+.glass-container {
+  width: 1100px;
+  padding: 40px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(255,255,255,0.2);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+  animation: fadeIn 1.5s ease;
+}
+
+.title {
+  text-align: center;
+  font-size: 40px;
+  color: #caa75e;
+}
+
+.subtitle {
+  text-align: center;
+  margin-bottom: 40px;
+  color: #000000;
+}
+
+/* Layout */
+.contact-wrapper {
+  display: flex;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+/* Info */
+.contact-info {
+  flex: 1;
+  color: #000000;
+}
+
+.contact-info h2 {
+  color: #caa75e;
+  margin-bottom: 20px;
+}
+
+.image-box img {
+  width: 60%;
+  border-radius: 15px;
+  margin-top: 20px;
+  animation: float 4s ease-in-out infinite;
+}
+
+/* Form */
+.contact-form {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 12px;
+  border-radius: 10px;
+  border: none;
+  background: rgba(255,255,255,0.1);
+  color: #fff;
+  outline: none;
+  border: 1px solid rgba(255,255,255,0.2);
+  transition: 0.3s;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: #caa75e;
+}
+
+.contact-form button {
+  padding: 12px;
+  border-radius: 50px;
+  border: none;
+  background: linear-gradient(135deg, #caa75e, #f5e6c4);
+  color: #111;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.contact-form button:hover {
+  transform: translateY(-3px);
+  background: #111;
+  color: #caa75e;
+  border: 1px solid #caa75e;
+}
+
+/* Map */
+.map-container {
+  margin-top: 50px;
+}
+
+.map-container iframe {
+  width: 100%;
+  height: 300px;
+  border-radius: 15px;
+  border: none;
+}
+
+/* WhatsApp Button */
+.whatsapp-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #25D366;
+  color: #fff;
+  font-size: 28px;
+  padding: 15px;
+  border-radius: 50%;
+  text-decoration: none;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+  animation: pulse 2s infinite;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {opacity: 0; transform: translateY(30px);}
+  to {opacity: 1; transform: translateY(0);}
+}
+
+@keyframes float {
+  0%,100% {transform: translateY(0);}
+  50% {transform: translateY(-10px);}
+}
+
+@keyframes pulse {
+  0% {box-shadow: 0 0 0 0 rgba(37,211,102,0.7);}
+  70% {box-shadow: 0 0 0 15px rgba(37,211,102,0);}
+  100% {box-shadow: 0 0 0 0 rgba(37,211,102,0);}
+}
+
+/* about page  */
+.about-section {
+  padding: 80px 8%;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 60px;
+}
+
+/* Reverse Layout */
+.reverse .container {
+  flex-direction: row-reverse;
+}
+
+.about-text {
+  flex: 1;
+}
+
+.about-text h2 {
+  font-size: 40px;
+  margin-bottom: 20px;
+  font-weight: 700;
+}
+
+.about-text h2 span {
+  color: #caa75e;
+}
+
+.about-text p {
+  margin-bottom: 18px;
+  line-height: 1.7;
+  color: #555;
+}
+
+/* Button */
+.btn {
+  display: inline-block;
+  padding: 12px 28px;
+  border: 2px solid #222;
+  border-radius: 8px;
+  text-decoration: none;
+  color: #222;
+  font-weight: 600;
+  transition: 0.3s ease;
+}
+
+.btn:hover {
+  background: #caa75e;
+  color: #fff;
+  border-color: #caa75e;
+}
+
+/* Image */
+.about-image {
+  flex: 1;
+}
+
+.about-image img {
+  width: 100%;
+  border-radius: 15px;
+  transition: 0.4s ease;
+}
+
+.about-image img:hover {
+  transform: scale(1.05);
+}
+
+/* Features */
+.features {
+  margin-top: 20px;
+}
+
+.features li {
+  margin-bottom: 12px;
+  color: #444;
+}
+
+/* ========== RESPONSIVE ========== */
+
+/* Tablet */
+@media (max-width: 992px) {
+  .container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .reverse .container {
+    flex-direction: column;
+  }
+
+  .about-text h2 {
+    font-size: 32px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 576px) {
+  .about-section {
+    padding: 60px 5%;
+  }
+
+  .about-text h2 {
+    font-size: 26px;
+  }
+
+  .btn {
+    padding: 10px 20px;
+  }
+}
+/* sellingProdct */
+.sellingProdct {
+    position: relative;
+    background-image: url("./img/cover4 (4).png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    min-height: 83vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+/* Dark Overlay */
+.sellingProdct::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.55);  /* opacity control here */
+    z-index: 0;
+}
+
+/* Make text above overlay */
+.sellingProdctText {
+    position: relative;
+    z-index: 1;
+    color: white;
+}
